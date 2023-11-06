@@ -1,30 +1,21 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import PropType from 'prop-types'
-import { getGifs } from '../helpers/getGiftApi'
 import CardGif from './CardGif'
+import { categoryCustomHook } from '../hooks/categoryCustomHook'
 const Categoy = ({ categoria }) => {
-    const [gifs, setGifs] = useState([])
-    const getApiGifs = async()=>{
-        const data = await getGifs(categoria)
-        setGifs(data)
-    }
-    useEffect( ()=>{ //Solo cuando se renderiza el componente
-        getApiGifs()
-    }, [])
-    
-
+    const { gifs, isLoading } = categoryCustomHook(categoria);
     return (
         <>
             <h4>{categoria}</h4>
             {
-                gifs.map( (item)=>{
-                    return (
-                        <div className='card-grid' key={item.id}>
-                            <CardGif {...item}/>
-                        </div>
-                    )
-                })
+                isLoading && (<h3>Cargando......</h3>)
             }
+            <div className='card-grid'>
+                {
+                    gifs.map( (item)=><CardGif key={item.id} {...item}/>)
+                }
+            </div>
+            
         </>
     )
 }

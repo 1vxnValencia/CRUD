@@ -14,7 +14,7 @@ const AddCategory = ( {addNewCategory} ) => {
       //Si la escritura es vacio o espacios
       if(category.trim().length <= 2) return;
       // Agrega una nueva categoria
-      addNewCategory(category);
+      addNewCategory(category);//Esta funcion viene del componente GiftApp
       //Limpia el input
       setCategory('')
     }

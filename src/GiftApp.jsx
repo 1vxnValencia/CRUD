@@ -3,7 +3,7 @@ import AddCategory from "./components/AddCategory"
 import {Categoy} from "./components/Categoy"
 
 const GiftApp = ()=>{
-    const [categorias, setCategorias]= useState(['Naruto'])
+    const [categorias, setCategorias]= useState([''])
 
     const addNewCategory = (category)=>{
         if (categorias.includes(category)) return;
@@ -13,11 +13,8 @@ const GiftApp = ()=>{
         <>
             <h1>Gift App</h1>
             <AddCategory addNewCategory={addNewCategory} />
-
-            {/*boton de busqueda*/}
-            
-            {/*mostrar lista de gifts */}
             {
+                //Mostrar lista de los gifts
                 categorias.map( ( c ) => <Categoy key={c} categoria={c}/>)
             }
         </>
