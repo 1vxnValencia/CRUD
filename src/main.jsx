@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Counter from './Counter'
 import './styles.css'
+import FormHookBetter from './FormHookBetter'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Counter/>
+    <FormHookBetter/>
   </React.StrictMode>,
 )
 /*
