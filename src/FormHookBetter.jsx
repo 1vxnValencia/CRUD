@@ -1,37 +1,41 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { customForm } from './hooks/customForm'
 
 const FormHookBetter = () => {
-  const [ formState, setFormState ] = useState({
-    username: 'Ivan',
-    password: '123456'
+  const {usuario, password, onFormStateChange, resetForm } = customForm({
+    usuario: 'Ivan',
+    password: '12345'
   })
-  const { username, password } = formState
-  const onFormStateChange = ({target})=>{
-    const {name, value}= target
-    console.log(name, value)
+  const onSubmit = (e)=>{
+    e.preventDefault()
+    console.log({usuario, password})
+    resetForm({usuario:'',password:''})
   }
   return (
     <>
-        <form action="">
-
-        </form>
-        <h4>Manejo de formulario</h4>
-        <hr />
+      <h4>Manejo de formulario</h4>
+      <hr />
+      <form className='container'>
         <input
-            type="text"
-            name='userName'
-            placeholder='Username'
-            value={username}
-            onChange={onFormStateChange}
+          type="text"
+          name='usuario'
+          placeholder='Username'
+          value={usuario}
+          onChange={onFormStateChange}
+          className='form-contol mt-3'
         />
         <input
-            // style={margin: 5px,}
-            type="password"
-            name='password'
-            placeholder='Password'
-            value={password}
-            onChange={onFormStateChange}
+          type="password"
+          name='password'
+          placeholder='Password'
+          value={password}
+          onChange={onFormStateChange}
+          className='form-contol mt-3'
         />
+        <button className='btn btn-primary mt-3'>
+          login
+        </button>
+      </form>
     </>
   )
 }
