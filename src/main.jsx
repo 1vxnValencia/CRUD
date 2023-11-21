@@ -9,6 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>,
 )
 /*
+vite vs cli
 Estructura de archivos react 
 Props
 prop types
@@ -16,3 +17,7 @@ sprint operation
 huks : useState, renderización de información
      : useEffect
 */
+/**
+ * peiloat
+ * 
+ */
